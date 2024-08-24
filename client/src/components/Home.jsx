@@ -21,7 +21,7 @@ const Home = () => {
           <p className='text-xl mt-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error perspiciatis ex rem iure iusto nemo ducimus, iste obcaecati facilis consectetur fuga voluptate quas ab magni earum voluptatem cupiditate et. Error dicta necessitatibus delectus repudiandae, quas hic recusandae beatae labore quaerat quia laborum, quam dolorum veritatis velit illo. Labore, maiores. Quidem et eligendi minima aspernatur! Harum similique iure minima porro rerum tempora saepe deleniti suscipit a vitae nemo modi illum reprehenderit possimus totam, ipsa nesciunt dolore quo? Dolorum molestiae magnam eius, impedit est quo officiis veniam deserunt doloribus corrupti? Vero minima cumque maiores alias eveniet veniam eius, odio nisi saepe error.</p>
           <div className='flex justify-center mt-4'>
             <Link to={"https://chatgpt.com/c/6320364b-18b6-4342-91ca-2b465e038901"}>
-              <Button variant="filled" color="gray" size='lg'>Watch Tutorial</Button>
+              <Button variant="filled" color="gray" size='lg'>Watch Yt Tutorial</Button>
             </Link>
 
           </div>
