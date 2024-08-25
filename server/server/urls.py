@@ -6,6 +6,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 from rest_framework import routers
 from posts.views import PostViewSet
 from assesments.views import AssessmentViewSet,UserResponseViewSet
+from doctors.views import DoctorListView
 
 
 
@@ -14,6 +15,9 @@ route = routers.DefaultRouter()
 route.register("listblogs", PostViewSet, basename='postview')
 route.register("assessment", AssessmentViewSet, basename='assessment')
 route.register("user_response", UserResponseViewSet, basename='user')
+route.register("doctorsList", DoctorListView, basename='doctors')
+
+
 
 
 urlpatterns = [

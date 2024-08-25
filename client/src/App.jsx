@@ -12,6 +12,7 @@ import CardBlog from './components/Blogs/Card';
 import AddBlog from './components/Blogs/AddBlog';
 import AssessmentList from './components/Assessments/AssessmentList';
 import Assessment from './components/Assessments/Assessment';
+import DoctorsList from './components/Doctors/DoctorsList';
 
 const theme = createTheme({
   
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/addBlog" element={<AddBlog />} />
           <Route path="/assessmentList" element={<AssessmentList />} />
           <Route path="/assessmentDetail/:id" element={<Assessment />} />
+          <Route path="/doctorsList" element={<DoctorsList />} />
         </Routes>
       </BrowserRouter> 
     </div>
