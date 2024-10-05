@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 from rest_framework import routers
 from posts.views import PostViewSet
 from assesments.views import AssessmentViewSet,UserResponseViewSet
-from doctors.views import DoctorListView
+from doctors.views import DoctorListView,SendEmailView
 
 
 
@@ -26,4 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include('acccounts.urls')),
     path('',include(route.urls)),
+    path('send-email/', SendEmailView.as_view(), name='send-email'),
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

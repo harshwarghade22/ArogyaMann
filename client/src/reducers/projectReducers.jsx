@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { SIGNUP_PROJECT_FAIL, SIGNUP_PROJECT_REQUEST, SIGNUP_PROJECT_SUCCESS,GET_BLOGS_SUCCESS,GET_BLOGS_FAIL,GET_BLOGS_REQUEST,CREATE_BLOG_REQUEST,CREATE_BLOG_SUCCESS,CREATE_BLOG_FAIL, LOGIN_PROJECT_REQUEST, LOGIN_PROJECT_SUCCESS, LOGIN_PROJECT_FAIL, LOGOUT_PROJECT, GET_ASSESSMENT_REQUEST, GET_ASSESSMENT_SUCCESS, GET_ASSESSMENT_FAIL,ASSESSMENT_DETAIL_REQUEST,ASSESSMENT_DETAIL_SUCCESS,ASSESSMENT_DETAIL_FAIL,GET_USERDETAIL_REQUEST,GET_USERDETAIL_SUCCESS,GET_USERDETAIL_FAIL,POST_RESPONSE_REQUEST,POST_RESPONSE_SUCCESS,POST_RESPONSE_FAIL,GET_DOCTORS_REQUEST,GET_DOCTORS_SUCCESS,GET_DOCTORS_FAIL } from "../constants/projectConstants";
+import { SIGNUP_PROJECT_FAIL, SIGNUP_PROJECT_REQUEST, SIGNUP_PROJECT_SUCCESS,GET_BLOGS_SUCCESS,GET_BLOGS_FAIL,GET_BLOGS_REQUEST,CREATE_BLOG_REQUEST,CREATE_BLOG_SUCCESS,CREATE_BLOG_FAIL, LOGIN_PROJECT_REQUEST, LOGIN_PROJECT_SUCCESS, LOGIN_PROJECT_FAIL, LOGOUT_PROJECT, GET_ASSESSMENT_REQUEST, GET_ASSESSMENT_SUCCESS, GET_ASSESSMENT_FAIL,ASSESSMENT_DETAIL_REQUEST,ASSESSMENT_DETAIL_SUCCESS,ASSESSMENT_DETAIL_FAIL,GET_USERDETAIL_REQUEST,GET_USERDETAIL_SUCCESS,GET_USERDETAIL_FAIL,POST_RESPONSE_REQUEST,POST_RESPONSE_SUCCESS,POST_RESPONSE_FAIL,GET_DOCTORS_REQUEST,GET_DOCTORS_SUCCESS,GET_DOCTORS_FAIL,GET_RESPONSE_REQUEST,GET_RESPONSE_SUCCESS,GET_RESPONSE_FAIL,GET_DOCTOR_REQUEST,GET_DOCTOR_SUCCESS,GET_DOCTOR_FAIL,POST_QUERY_REQUEST,POST_QUERY_SUCCESS,POST_QUERY_FAIL } from "../constants/projectConstants";
 
 const initialState = {
     loading: false,
@@ -191,6 +191,70 @@ export const doctorListReducers = (state={doctors:[]},action)=>{
                 doctors: action.payload
             }
         case GET_DOCTORS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+export const doctorDetailReducers = (state = {}, action) =>{
+    switch(action.type){
+        case GET_DOCTOR_REQUEST:
+            return {
+                loading: true
+            }
+        case GET_DOCTOR_SUCCESS:
+            return {
+                loading: false,
+                doctor: action.payload
+            }
+        case GET_DOCTOR_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+export const responseReducers = (state={response:[]},action)=>{
+    switch(action.type){
+        case GET_RESPONSE_REQUEST:
+            return {
+                response:[],
+                loading: true
+            }
+        case GET_RESPONSE_SUCCESS:
+            return {
+                loading: false,
+                response: action.payload
+            }
+        case GET_RESPONSE_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+        default:
+            return state
+    }
+}
+
+export const queryReducer = (state = {}, action) =>{
+    switch(action.type){
+        case POST_QUERY_REQUEST:
+            return {
+                loading: true
+            }
+        case POST_QUERY_SUCCESS:
+            return {
+                loading: false,
+                query: action.payload
+            }
+        case POST_QUERY_FAIL:
             return {
                 loading: false,
                 error: action.payload

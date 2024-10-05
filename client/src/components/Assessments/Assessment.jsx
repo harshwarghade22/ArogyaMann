@@ -10,6 +10,7 @@ const Assessment = () => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const [answers, setAnswers] = useState({})
+  const navigate = useNavigate()
   
   
 
@@ -25,6 +26,7 @@ const Assessment = () => {
 
   const userDetails = useSelector((state) => state.userDetails);
   const { user } = userDetails;
+
   console.log("User Id:",user?.id)
   console.log("Assessment id:",id)
   console.log("Access token:",userInfo?.access)
@@ -46,12 +48,12 @@ const Assessment = () => {
     // TODO: Save the answers to the database
     dispatch(postResponse(user?.id,id,answers,userInfo.access))
     console.log("Submitted assessment:", answers)
-
+    navigate(`/assessmentReports`)
   }
 
   return (
     <div className='' key={assessment?.key}>
-      <h1 className='text-5xl font-bold text-center mt-5'>Welcome for your assessment!!...</h1>
+      <h1 className='text-5xl font-bold text-center mt-5'>Welcome for {user?.name} your assessment!!...</h1>
       <h1 className='text-3xl font-bold mt-5'>Assessment Type : {assessment?.name}</h1>
       <p className='text-xl'><span className='text-xl font-bold'>Description</span> : {assessment?.description}</p>
       <div className='flex flex-col items-center'>
