@@ -12,7 +12,7 @@ export const signup = (name, email, password, password2) => async (dispatch) => 
             }
         };
 
-        const { data } = await axios.post('http://127.0.0.1:8000/api/accounts/signup/', { name, email, password, password2 }, config);
+        const { data } = await axios.post('http://127.0.0.1:8000/accounts/signup/', { name, email, password, password2 }, config);
 
         dispatch({
             type: SIGNUP_PROJECT_SUCCESS,
@@ -222,7 +222,7 @@ export const getResponse = (userId) => async(dispatch) => {
   }
 }
 
-export const postQuery = (sender_email,subject,message) => async(dispatch) => {
+export const postQuery = (sender_email,subject,message,receiver_email) => async(dispatch) => {
   try {
     dispatch({ type: POST_QUERY_REQUEST });
     const config = {
@@ -230,7 +230,7 @@ export const postQuery = (sender_email,subject,message) => async(dispatch) => {
         'Content-Type': 'application/json',
       },
     }
-    const { data } = await axios.post("http://127.0.0.1:8000/send-email/",{sender_email,subject,message}, config);
+    const { data } = await axios.post("http://127.0.0.1:8000/send-email/",{sender_email,subject,message,receiver_email}, config);
     dispatch({ type: POST_QUERY_SUCCESS, payload: data });
     
   } catch (error) {

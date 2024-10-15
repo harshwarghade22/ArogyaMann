@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { signup } from "../actions/projectActions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
@@ -18,6 +18,8 @@ const SignUp = () => {
     const dispatch = useDispatch();
     const userSignup = useSelector((state) => state.userSignup) || {};
     const { loading, error, userInfo } = userSignup;
+
+    const navigate = useNavigate(); // useNavigate hook from react-router-dom to navigate to a new page when signup is successful
 
     useEffect(() => {
         if (userInfo) {
@@ -40,6 +42,8 @@ const SignUp = () => {
             // signup logic here
             dispatch(signup(name, email, password,password2));
         }
+
+        navigate('/signin')
     };
 
     return (

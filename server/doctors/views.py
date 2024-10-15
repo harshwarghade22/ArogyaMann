@@ -19,7 +19,7 @@ class DoctorListView(viewsets.ModelViewSet):
 class SendEmailView(APIView):
     def post(self, request, *args, **kwargs):
         sender_email = request.data.get('sender_email')
-        # receiver_email = request.data.get('receiver_email')
+        receiver_email = request.data.get('receiver_email')
         subject = request.data.get('subject')
         message = request.data.get('message')
 
