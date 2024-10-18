@@ -7,7 +7,6 @@ class Doctor(models.Model):
     level=models.IntegerField()
     specialization = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=10)
-    email=models.EmailField(max_length=30)
-
+    email=models.EmailField(max_length=30, default='default@example.com')
     def __str__(self): 
         return self.name

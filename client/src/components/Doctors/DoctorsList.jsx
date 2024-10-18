@@ -13,7 +13,7 @@ const DoctorsList = () => {
         dispatch(getDoctors())
     }, [dispatch])
 
-    console.log(doctors)
+    // console.log(doctors)
 
     return (
 

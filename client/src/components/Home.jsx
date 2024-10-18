@@ -5,10 +5,31 @@ import { Link } from 'react-router-dom'
 import { PieChart } from '@mantine/charts';
 import CardBlog from './Blogs/Card';
 import AddBlog from './Blogs/AddBlog';
+import { useSelector } from 'react-redux';
+import Dialog from './UI/Dialog';
+import DialogBox from './UI/Dialog';
 // import {Card} from './Blogs/Card'
 
 
 const Home = () => {
+  const auth = useSelector((state) => state.userLogin);
+  const { loading, error, userInfo, isAuthenticated } = auth;
+
+  const assessmentTest=(
+    <     Link to={"assessmentList/"} className='px-20'>
+            <Button variant="filled" color="gray" size='lg' className='mt-4'>Take Assessment test</Button>
+          </Link>
+  )
+
+  const signIn=(
+          <>
+          <DialogBox/>
+          {/* <Link to={"signin/"} className='px-20'>
+            <Button variant="filled" color="gray" size='lg' className='mt-4'>Take Assessment test</Button>
+          </Link> */}
+          </>
+          
+  )
   return (
     <div className='w-screen px-20'>
       <div className='text-center mt-5'>
@@ -28,9 +49,12 @@ const Home = () => {
         </div>
         <div className='w-1/2 h-full px-40' >
           <img src="https://hips.hearstapps.com/hmg-prod/images/mental-health-quotes-matt-haig-1651243010.jpg" alt="" className='h-[380px] shadow-2xl' />
-          <Link to={"assessmentList/"} className='px-20'>
+          {
+            isAuthenticated ? assessmentTest : signIn
+          }
+          {/* <Link to={"assessmentList/"} className='px-20'>
             <Button variant="filled" color="gray" size='lg' className='mt-4'>Take Assessment test</Button>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <h1 className='text-5xl font-semibold text-blue-500 mb-4'>Blogs By some of our users...</h1>
