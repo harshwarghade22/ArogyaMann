@@ -27,5 +27,5 @@ urlpatterns = [
     path('accounts/',include('acccounts.urls')),
     path('',include(route.urls)),
     path('send-email/', SendEmailView.as_view(), name='send-email'),
-
+    
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

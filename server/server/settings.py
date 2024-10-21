@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'doctors',
     'django_filters'
-    
 ]
 
 MIDDLEWARE = [
